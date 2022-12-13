@@ -19,6 +19,7 @@ public class MainController implements ActionListener {
 
   private void addActionEvents() {
     mainFrame.submitButton.addActionListener(this);
+    mainFrame.resetButton.addActionListener(this);
     mainFrame.exitButton.addActionListener(this);
     mainFrame.creditsButton.addActionListener(this);
   }
@@ -35,17 +36,24 @@ public class MainController implements ActionListener {
 
     Double area = Math.pow(side, 2) * Math.sin(Math.toRadians(angle));
 
-    System.out.println(area);
-
     mainFrame.perimeter.setValue(perimeter.toString());
     mainFrame.area.setValue(area.toString());
 
+  }
+
+  private void reset() {
+    mainFrame.sideInput.setValue(null);
+    mainFrame.angleInput.setValue(null);
+    mainFrame.perimeter.setValue(null);
+    mainFrame.area.setValue(null);
   }
 
   @Override
   public void actionPerformed(ActionEvent event) {
     if (event.getSource() == mainFrame.submitButton) {
       calculate();
+    } else if (event.getSource() == mainFrame.resetButton) {
+      reset();
     } else if (event.getSource() == mainFrame.creditsButton) {
       System.out.println("Credits");
     } else if (event.getSource() == mainFrame.exitButton) {

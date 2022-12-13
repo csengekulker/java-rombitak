@@ -19,7 +19,9 @@ public class MainFrame extends JFrame {
   JPanel centerPanel;
     public InputPanel sideInput;
     public InputPanel angleInput;
-    public JButton submitButton;
+    JPanel buttonPanel;
+      public JButton submitButton;
+      public JButton resetButton;
     public InputPanel perimeter;
     public InputPanel area;
 
@@ -46,7 +48,10 @@ public class MainFrame extends JFrame {
       angleInput = new InputPanel();
       angleInput.setText(("Alpha: "));
 
+      buttonPanel = new JPanel(new GridLayout(1, 2));
+
       submitButton = new JButton("Számítás");
+      resetButton = new JButton("Újra");
 
       perimeter = new InputPanel();
       perimeter.setText("Kerület: ");
@@ -62,7 +67,11 @@ public class MainFrame extends JFrame {
 
     centerPanel.add(sideInput);
     centerPanel.add(angleInput);
-    centerPanel.add(submitButton);
+    centerPanel.add(buttonPanel);
+
+    buttonPanel.add(submitButton);
+    buttonPanel.add(resetButton);
+
     centerPanel.add(perimeter);
     centerPanel.add(area);
 
