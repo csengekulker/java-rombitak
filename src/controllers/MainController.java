@@ -37,6 +37,9 @@ public class MainController implements ActionListener {
 
     System.out.println(area);
 
+    mainFrame.perimeter.setValue(perimeter.toString());
+    mainFrame.area.setValue(area.toString());
+
   }
 
   @Override

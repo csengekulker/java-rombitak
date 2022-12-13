@@ -20,8 +20,8 @@ public class MainFrame extends JFrame {
     public InputPanel sideInput;
     public InputPanel angleInput;
     public JButton submitButton;
-    InputPanel perimeter;
-    InputPanel area;
+    public InputPanel perimeter;
+    public InputPanel area;
 
   JPanel southPanel;
     public JButton exitButton;
