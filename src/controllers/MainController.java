@@ -4,6 +4,8 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 
+import lan.bcs.InputPanel;
+
 import java.awt.event.ActionEvent;
 
 import models.MainModel;
@@ -17,6 +19,12 @@ public class MainController implements ActionListener {
   JButton resetButton;
   JButton creditsButton;
   JButton exitButton;
+
+  InputPanel sideInput;
+  InputPanel angleInput;
+
+  InputPanel perimeterDisplay;
+  InputPanel areaDisplay;
   
   public MainController() {
 
@@ -32,6 +40,12 @@ public class MainController implements ActionListener {
     resetButton = mainFrame.getResetButton();
     creditsButton = mainFrame.getCreditsButton();
     exitButton = mainFrame.getExitButton();
+
+    sideInput = mainFrame.getSideInput();
+    angleInput = mainFrame.getAngleInput();
+
+    perimeterDisplay = mainFrame.getPerimeterDisplay();
+    areaDisplay = mainFrame.getAreaDisplay();
   }
 
   private void addActionEvents() {
@@ -42,23 +56,27 @@ public class MainController implements ActionListener {
   }
 
   public void calculate() {
-    Double side = Double.parseDouble(mainFrame.sideInput.getValue());
-    Double angle = Double.parseDouble(mainFrame.angleInput.getValue());
+
+    String sideInputString = sideInput.getValue();
+    String angleInputString = angleInput.getValue();
+
+    Double side = Double.parseDouble(sideInputString);
+    Double angle = Double.parseDouble(angleInputString);
 
     Double perimeter = 4 * side;
 
     Double area = Math.pow(side, 2) * Math.sin(Math.toRadians(angle));
 
-    mainFrame.perimeterDisplay.setValue(perimeter.toString());
-    mainFrame.areaDisplay.setValue(area.toString());
+    perimeterDisplay.setValue(perimeter.toString());
+    areaDisplay.setValue(area.toString());
 
   }
 
   private void reset() {
-    mainFrame.sideInput.setValue(null);
-    mainFrame.angleInput.setValue(null);
-    mainFrame.perimeterDisplay.setValue(null);
-    mainFrame.areaDisplay.setValue(null);
+    sideInput.setValue(null);
+    angleInput.setValue(null);
+    perimeterDisplay.setValue(null);
+    areaDisplay.setValue(null);
   }
 
   private void displayCredits() {

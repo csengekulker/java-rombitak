@@ -17,13 +17,13 @@ public class MainFrame extends JFrame {
     JLabel mainLabel;
 
   JPanel centerPanel;
-    public InputPanel sideInput;
-    public InputPanel angleInput;
+    InputPanel sideInput;
+    InputPanel angleInput;
     JPanel buttonPanel;
       JButton submitButton;
       JButton resetButton;
-    public InputPanel perimeterDisplay;
-    public InputPanel areaDisplay;
+    InputPanel perimeterDisplay;
+    InputPanel areaDisplay;
 
   JPanel southPanel;
     JButton exitButton;
@@ -98,6 +98,7 @@ public class MainFrame extends JFrame {
 
   }
 
+  // methods to access buttons
   public JButton getSubmitButton() {
     return this.submitButton;
   }
@@ -109,5 +110,21 @@ public class MainFrame extends JFrame {
   }
   public JButton getExitButton() {
     return this.exitButton;
+  }
+
+  // methods to access input fields
+  public InputPanel getSideInput() {
+    return this.sideInput;
+  }
+  public InputPanel getAngleInput() {
+    return this.angleInput;
+  }
+
+  //methods to access display fields
+  public InputPanel getPerimeterDisplay() {
+    return this.perimeterDisplay;
+  }
+  public InputPanel getAreaDisplay() {
+    return this.areaDisplay;
   }
 }
