@@ -1,14 +1,22 @@
+/*
+* File: MainFrame.java
+* Author: Balogh Csenge
+* Copyright: 2021, Balogh Csenge
+* Group: Szoft_II_N
+* Date: 2022-12-13
+* Github: https://github.com/csengekulker/
+* Licenc: GNU GPL
+*/
+
 package views;
 
+import java.awt.GridLayout;
+import java.awt.BorderLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-
 import lan.bcs.InputPanel;
-
-import java.awt.GridLayout;
-import java.awt.BorderLayout;
 
 public class MainFrame extends JFrame {
   JPanel mainPanel;

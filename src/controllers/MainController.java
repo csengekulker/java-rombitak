@@ -1,14 +1,20 @@
+/*
+* File: MainController.java
+* Author: Balogh Csenge
+* Copyright: 2021, Balogh Csenge
+* Group: Szoft_II_N
+* Date: 2022-12-13
+* Github: https://github.com/csengekulker/
+* Licenc: GNU GPL
+*/
+
 package controllers;
 
 import java.awt.event.ActionListener;
-
+import java.awt.event.ActionEvent;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
-
 import lan.bcs.InputPanel;
-
-import java.awt.event.ActionEvent;
-
 import views.MainFrame;
 
 public class MainController implements ActionListener {
@@ -86,7 +92,6 @@ public class MainController implements ActionListener {
       );
     }
 
-
   }
 
   private void reset() {
@@ -98,7 +103,11 @@ public class MainController implements ActionListener {
 
   private void displayCredits() {
     
-    String content = "Balogh Csenge\nSzoft_II_N";
+    String content = 
+      "Készítő: Balogh Csenge Ágota \n"
+      + "Csoport: Szoft_II_N \n"
+      + "Dátum: 2022.12.13";
+
     String title = "Rombitak 0.0.1";
 
     JOptionPane.showMessageDialog(
