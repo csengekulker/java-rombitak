@@ -17,15 +17,15 @@ public class MainFrame extends JFrame {
     JLabel mainLabel;
 
   JPanel centerPanel;
-    InputPanel sideInput;
-    InputPanel angleInput;
-    JButton submitButton;
+    public InputPanel sideInput;
+    public InputPanel angleInput;
+    public JButton submitButton;
     InputPanel perimeter;
     InputPanel area;
 
   JPanel southPanel;
-    JButton exitButton;
-    JButton creditsButton;
+    public JButton exitButton;
+    public JButton creditsButton;
 
   public MainFrame() {
 
