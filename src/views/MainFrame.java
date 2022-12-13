@@ -20,14 +20,14 @@ public class MainFrame extends JFrame {
     public InputPanel sideInput;
     public InputPanel angleInput;
     JPanel buttonPanel;
-      public JButton submitButton;
-      public JButton resetButton;
-    public InputPanel perimeter;
-    public InputPanel area;
+      JButton submitButton;
+      JButton resetButton;
+    public InputPanel perimeterDisplay;
+    public InputPanel areaDisplay;
 
   JPanel southPanel;
-    public JButton exitButton;
-    public JButton creditsButton;
+    JButton exitButton;
+    JButton creditsButton;
 
   public MainFrame() {
 
@@ -53,10 +53,10 @@ public class MainFrame extends JFrame {
       submitButton = new JButton("Számítás");
       resetButton = new JButton("Újra");
 
-      perimeter = new InputPanel();
-      perimeter.setText("Kerület: ");
-      area = new InputPanel();
-      area.setText("Terület: ");
+      perimeterDisplay = new InputPanel();
+      perimeterDisplay.setText("Kerület: ");
+      areaDisplay = new InputPanel();
+      areaDisplay.setText("Terület: ");
 
     southPanel = new JPanel(new GridLayout(1, 2));
 
@@ -72,8 +72,8 @@ public class MainFrame extends JFrame {
     buttonPanel.add(submitButton);
     buttonPanel.add(resetButton);
 
-    centerPanel.add(perimeter);
-    centerPanel.add(area);
+    centerPanel.add(perimeterDisplay);
+    centerPanel.add(areaDisplay);
 
     southPanel.add(creditsButton);
     southPanel.add(exitButton);
@@ -96,5 +96,18 @@ public class MainFrame extends JFrame {
     this.setTitle("Rombusz");
     this.setVisible(true);
 
+  }
+
+  public JButton getSubmitButton() {
+    return this.submitButton;
+  }
+  public JButton getResetButton() {
+    return this.resetButton;
+  }
+  public JButton getCreditsButton() {
+    return this.creditsButton;
+  }
+  public JButton getExitButton() {
+    return this.exitButton;
   }
 }

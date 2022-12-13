@@ -1,6 +1,9 @@
 package controllers;
 
 import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+
 import java.awt.event.ActionEvent;
 
 import models.MainModel;
@@ -9,23 +12,33 @@ import views.MainFrame;
 public class MainController implements ActionListener {
   MainFrame mainFrame;
   MainModel mainModel;
+
+  JButton submitButton;
+  JButton resetButton;
+  JButton creditsButton;
+  JButton exitButton;
   
   public MainController() {
-    this.mainFrame = new MainFrame();
-    this.mainModel = new MainModel();
 
+    start();
     addActionEvents();
   }
 
-  private void addActionEvents() {
-    mainFrame.submitButton.addActionListener(this);
-    mainFrame.resetButton.addActionListener(this);
-    mainFrame.exitButton.addActionListener(this);
-    mainFrame.creditsButton.addActionListener(this);
+  private void start() {
+    this.mainFrame = new MainFrame();
+    this.mainModel = new MainModel();
+
+    submitButton = mainFrame.getSubmitButton();
+    resetButton = mainFrame.getResetButton();
+    creditsButton = mainFrame.getCreditsButton();
+    exitButton = mainFrame.getExitButton();
   }
 
-  private void exit() {
-    System.exit(0);
+  private void addActionEvents() {
+    submitButton.addActionListener(this);
+    resetButton.addActionListener(this);
+    exitButton.addActionListener(this);
+    creditsButton.addActionListener(this);
   }
 
   public void calculate() {
@@ -36,28 +49,35 @@ public class MainController implements ActionListener {
 
     Double area = Math.pow(side, 2) * Math.sin(Math.toRadians(angle));
 
-    mainFrame.perimeter.setValue(perimeter.toString());
-    mainFrame.area.setValue(area.toString());
+    mainFrame.perimeterDisplay.setValue(perimeter.toString());
+    mainFrame.areaDisplay.setValue(area.toString());
 
   }
 
   private void reset() {
     mainFrame.sideInput.setValue(null);
     mainFrame.angleInput.setValue(null);
-    mainFrame.perimeter.setValue(null);
-    mainFrame.area.setValue(null);
+    mainFrame.perimeterDisplay.setValue(null);
+    mainFrame.areaDisplay.setValue(null);
+  }
+
+  private void displayCredits() {
+    System.out.println("Credits");
+  }
+
+  private void exit() {
+    System.exit(0);
   }
 
   @Override
   public void actionPerformed(ActionEvent event) {
-    if (event.getSource() == mainFrame.submitButton) {
+    if (event.getSource() == submitButton) {
       calculate();
-    } else if (event.getSource() == mainFrame.resetButton) {
+    } else if (event.getSource() == resetButton) {
       reset();
-    } else if (event.getSource() == mainFrame.creditsButton) {
-      System.out.println("Credits");
-    } else if (event.getSource() == mainFrame.exitButton) {
-      System.out.println("o");
+    } else if (event.getSource() == creditsButton) {
+      displayCredits();
+    } else if (event.getSource() == exitButton) {
       exit();
     }
   }
