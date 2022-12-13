@@ -2,6 +2,7 @@
     "java.project.sourcePaths": ["src"],
     "java.project.outputPath": "bin",
     "java.project.referencedLibraries": [
-        "lib/**/*.jar"
+        "lib/**/*.jar",
+        "/home/csengebalogh/Projects/kulker/Library/java-inputpanel/java-inputpanel.jar"
     ]
 }
