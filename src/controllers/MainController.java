@@ -3,17 +3,16 @@ package controllers;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 
 import lan.bcs.InputPanel;
 
 import java.awt.event.ActionEvent;
 
-import models.MainModel;
 import views.MainFrame;
 
 public class MainController implements ActionListener {
-  MainFrame mainFrame;
-  MainModel mainModel;
+  MainFrame mf;
 
   JButton submitButton;
   JButton resetButton;
@@ -33,19 +32,18 @@ public class MainController implements ActionListener {
   }
 
   private void start() {
-    this.mainFrame = new MainFrame();
-    this.mainModel = new MainModel();
+    this.mf = new MainFrame();
 
-    submitButton = mainFrame.getSubmitButton();
-    resetButton = mainFrame.getResetButton();
-    creditsButton = mainFrame.getCreditsButton();
-    exitButton = mainFrame.getExitButton();
+    submitButton = mf.getSubmitButton();
+    resetButton = mf.getResetButton();
+    creditsButton = mf.getCreditsButton();
+    exitButton = mf.getExitButton();
 
-    sideInput = mainFrame.getSideInput();
-    angleInput = mainFrame.getAngleInput();
+    sideInput = mf.getSideInput();
+    angleInput = mf.getAngleInput();
 
-    perimeterDisplay = mainFrame.getPerimeterDisplay();
-    areaDisplay = mainFrame.getAreaDisplay();
+    perimeterDisplay = mf.getPerimeterDisplay();
+    areaDisplay = mf.getAreaDisplay();
   }
 
   private void addActionEvents() {
@@ -55,20 +53,39 @@ public class MainController implements ActionListener {
     creditsButton.addActionListener(this);
   }
 
-  public void calculate() {
-
-    String sideInputString = sideInput.getValue();
-    String angleInputString = angleInput.getValue();
-
-    Double side = Double.parseDouble(sideInputString);
-    Double angle = Double.parseDouble(angleInputString);
-
+  private void calculate(double side, double angle) {
     Double perimeter = 4 * side;
 
     Double area = Math.pow(side, 2) * Math.sin(Math.toRadians(angle));
 
     perimeterDisplay.setValue(perimeter.toString());
     areaDisplay.setValue(area.toString());
+  }
+
+  private void tryCalculate() {
+
+    String sideInputString = sideInput.getValue();
+    String angleInputString = angleInput.getValue();
+
+    try {
+      Double side = Double.parseDouble(sideInputString);
+      Double angle = Double.parseDouble(angleInputString);
+
+      calculate(side, angle);
+
+    } catch (NumberFormatException e) {
+
+      String content = "Hibás bemenő adatok!";
+      String title = "HIBA";
+
+      JOptionPane.showMessageDialog(
+        mf.getContentPane(),
+        content,
+        title,
+        JOptionPane.ERROR_MESSAGE
+      );
+    }
+
 
   }
 
@@ -80,7 +97,16 @@ public class MainController implements ActionListener {
   }
 
   private void displayCredits() {
-    System.out.println("Credits");
+    
+    String content = "Balogh Csenge\nSzoft_II_N";
+    String title = "Rombitak 0.0.1";
+
+    JOptionPane.showMessageDialog(
+      mf.getContentPane(), 
+      content, 
+      title, 
+      JOptionPane.INFORMATION_MESSAGE);
+
   }
 
   private void exit() {
@@ -89,13 +115,16 @@ public class MainController implements ActionListener {
 
   @Override
   public void actionPerformed(ActionEvent event) {
-    if (event.getSource() == submitButton) {
-      calculate();
-    } else if (event.getSource() == resetButton) {
+
+    Object source = event.getSource();
+
+    if (source == submitButton) {
+      tryCalculate();
+    } else if (source == resetButton) {
       reset();
-    } else if (event.getSource() == creditsButton) {
+    } else if (source == creditsButton) {
       displayCredits();
-    } else if (event.getSource() == exitButton) {
+    } else if (source == exitButton) {
       exit();
     }
   }

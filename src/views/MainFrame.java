@@ -33,10 +33,13 @@ public class MainFrame extends JFrame {
 
     setMainPanel();
     setComponents();
+    addComponentsToPanels();
     setFrame();
   }
 
   private void setComponents() {
+
+    GridLayout Grid_1_2 = new GridLayout(1, 2);
 
     northPanel = new JPanel();
       mainLabel = new JLabel("Rombusz adatai");
@@ -44,25 +47,28 @@ public class MainFrame extends JFrame {
     centerPanel = new JPanel(new GridLayout(5, 1));
 
       sideInput = new InputPanel();
-      sideInput.setText("A oldal:");
+      sideInput.setText("A oldal (m):");
       angleInput = new InputPanel();
-      angleInput.setText(("Alpha: "));
+      angleInput.setText(("Alpha (°): "));
 
-      buttonPanel = new JPanel(new GridLayout(1, 2));
+      buttonPanel = new JPanel(Grid_1_2);
 
       submitButton = new JButton("Számítás");
       resetButton = new JButton("Újra");
 
       perimeterDisplay = new InputPanel();
-      perimeterDisplay.setText("Kerület: ");
+      perimeterDisplay.setText("Kerület (m): ");
       areaDisplay = new InputPanel();
-      areaDisplay.setText("Terület: ");
+      areaDisplay.setText("Terület (m²): ");
 
-    southPanel = new JPanel(new GridLayout(1, 2));
+    southPanel = new JPanel(Grid_1_2);
 
       exitButton = new JButton("Kilépés");
       creditsButton = new JButton("Névjegy");
 
+  }
+
+  private void addComponentsToPanels() {
     northPanel.add(mainLabel);
 
     centerPanel.add(sideInput);
@@ -81,7 +87,6 @@ public class MainFrame extends JFrame {
     mainPanel.add(northPanel, BorderLayout.NORTH);
     mainPanel.add(centerPanel, BorderLayout.CENTER);
     mainPanel.add(southPanel, BorderLayout.SOUTH);
-
   }
 
   private void setMainPanel() {
@@ -93,7 +98,7 @@ public class MainFrame extends JFrame {
   private void setFrame() {
     this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     this.setSize(400, 300);
-    this.setTitle("Rombusz");
+    this.setTitle("Rombitak");
     this.setVisible(true);
 
   }
