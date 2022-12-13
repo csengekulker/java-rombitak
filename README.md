@@ -1,26 +1,27 @@
-# Java MVC Template
+# Rombitak 0.0.1
 
-This is an MVC template to easily create and get started with Java GUI Desktop applications.
+## A program nyújtotta lehetőségekről
 
-> **This is NOT a final version, there may be further improvements and additions.**
+- Ezt az alkalmazást egyetlen dologra tudja csak használni.
+- Oké, igazából kettőre.
+- (*kerület* **ÉS** *terület* számítása)
+- És még ingyenes is.
+- Ha megad két számot, a program készségesen viszonozza majd ezt Ön felé.
+- Amennyiben érdekli, kinek a lelkén szárad a program létezése, kattinson a **Névjegy** gombra.
 
-## Folder Structure
+## Használat (haladóknak)
 
-The workspace contains two folders by default, where:
+1. Adja meg a rombusz oldalát (méterben).
+2. Adja meg az alfa szöget (fokban).
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+3. Nyomja meg a **Számítás** gombot.
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+4. Gyönyörködjön a frissen kiszámított, ropogós eredményeiben.
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+5. Ha elege van belőlük, nyomja meg az **Újra** gombot. Ekkor megadhatja újra az adatokat. 
 
-## Recommended usage of the folder structure:
+    >Ha ugyanazokat az adatokat adja meg, nem fogja elhinni, ugyanazt az eredményt kapja majd.
 
-- `views`: files configuring and displaying windows and components
-- `models`: files creating custom or default models to build components
-- `controllers`: files controlling behaviors of different windows and components
+    +1. Ne is próbálkozzon számolásra alkalmatlan adatok megadásával, hogy "kiscica", "xd" meg ilyenek, különben egy modális, hibára figyelmeztető ablak fogja álmában kísérteni.
 
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+    Jóéjt.
